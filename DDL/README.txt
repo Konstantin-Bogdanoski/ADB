@@ -1,6 +1,6 @@
 Konstantin Bogdanoski, 161048
-=======================================================
-izvrshuvajte gi query-njata po redniot broj (#1, #2...)
+===========================================================
+izvrshuvajte gi query-njata po redniot broj (#0, #1, #2...)
 
 Random vrednostite gi polnam preku jupiter skripta.
 Taa polni:
@@ -10,5 +10,5 @@ Taa polni:
 	5 000 chefs
 	5 000 deliverers
 
-=======================================================
+===========================================================
 Napredni Bazi na Podatoci, Finki, 2020
