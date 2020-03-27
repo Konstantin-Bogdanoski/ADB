@@ -6,7 +6,7 @@
 
 1. Извлечи ги сите нарачки, кај чии адресата на достава започнува со
 16, додека доставените пици биле Капричиози, кои биле направени од 
-вработениот пица мајстор со ID = 16148. 
+вработениот пица мајстор со ID = 1614. 
 > од ова ќе добиеме информации за кој мајстор ги има направено пиците кои биле доставени до одредена населба. Во примеров, населбите се во формат `customer_NUMBER-address`. Да претпоставиме дека првите 2 цифри означуваат населба.
 
 2. Извлечи ги сите пици, кои не се spicy (_ако пицата има spicy состојка, тогаш е spicy_), а воедно вкупната количина на состојките не надминува 460 грама. Oткако ќе се добијат пиците, да се најде вкупниот број на нарачки
@@ -18,8 +18,8 @@
 
 > The requirements for the queries are in continuation.
 >> 1. Extract all orders, in which the designated address starts with 16,
-while the delivered pizzas are Capricciozzas and were made from the chef
-with ID - 16148.
+while the delivered pizzas are Capricciosas and were made from the chef
+with ID - 1614.
 >>> From this query we will extract information about which chef is responsible
 for which pizzas in which inhabited place.
 >> 2. Extract all the pizzas, which are not spicy (_if the pizza has a spicy ingredient, it is spicy_), while the total weight of the ingredients doesn't pass 460 grams. After you've queried all the pizzas, find the total number of orders which have these pizzas.
