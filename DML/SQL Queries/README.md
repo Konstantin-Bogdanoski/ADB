@@ -17,7 +17,7 @@
 > со овој прашалник ќе ги добиеме сите корисници кои сакаат spicy пици и доставувачите кои ги доставиле истите пици. Со тоа ни се отвара можноста за праќање на соодветни промоции и маркетинг работи за spicy пици кон тие корисници, преку тие доставувачи.
 
 > The requirements for the queries are in continuation.
->> 1. Extract all orders, in which the designated address ends with 16,
+>> 1. Extract all orders, in which the designated address starts with 16,
 while the delivered pizzas are Capricciozzas and were made from the chef
 with ID - 16148.
 >>> From this query we will extract information about which chef is responsible
