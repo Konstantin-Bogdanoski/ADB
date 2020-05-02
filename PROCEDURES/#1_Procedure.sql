@@ -1,4 +1,8 @@
--- 1. Additional bonus of 5% for the employees if the profit from the current week is at least 10% greater than last week
+-- 1. Additional bonus of 5% for the employees if the profit
+-- from the current week is at least 10% greater than last week
+
+-- You could add an additional procedure, where you would lower the employees' pay
+-- if the profit from current week is lower than 20% from last week
 
 CREATE OR REPLACE PROCEDURE bonus()
     LANGUAGE plpgsql
@@ -40,4 +44,7 @@ BEGIN
 
     COMMIT;
 END;
-$$
+$$;
+
+-- Calling the procedure
+CALL bonus();
