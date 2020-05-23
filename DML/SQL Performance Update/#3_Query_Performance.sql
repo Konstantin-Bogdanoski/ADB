@@ -105,6 +105,7 @@ GROUP BY customer_id;
 
 -------------------------------------------------------------------------------------------------
 -- Final result
+q
 -- Customers with num_orders > 15
 
 -- Before optimization: Total Cost: 104.24
