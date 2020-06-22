@@ -1,0 +1,42 @@
+<!-- @author Konstantin Bogdanoski (konstantin.b@live.com) -->
+<h3 style="text-align: center">User: <span th:text="${user.username}"></span></h3>
+<table xmlns:th="http://www.w3.org/1999/xhtml">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Pizza</th>
+        <th>Size</th>
+        <th>Address</th>
+        <th>Date Ordered</th>
+        <th>Delete</th>
+    </tr>
+    </thead>
+    <tr th:each="order : ${orders}">
+        <td th:text="${order.id}">
+        </td>
+        <td th:text="${order.pizza.name}">
+        </td>
+        <td th:text="${order.size}"></td>
+        <td th:text="${order.address}">
+        </td>
+        <td th:text="${order.dateCreated}">
+        </td>
+        <td>
+            <form th:action="@{/admin/orders/} + ${order.user.id} + '/' + ${order.id}" method="post"
+                  onsubmit="return deleteUser(this, '${order.id}');">
+                <input type="hidden" name="orderID" th:value="${order.id}">
+                <input type="hidden" name="_method" value="DELETE"/>
+                <button type="submit" class="button-error">Delete</button>
+            </form>
+        </td>
+    </tr>
+</table>
+<script>
+    function deleteUser(form, orderID) {
+        if (confirm("Are you sure you want to delete the Order?")) {
+            form.action(orderID);
+            return true;
+        }
+        return false;
+    }
+</script>

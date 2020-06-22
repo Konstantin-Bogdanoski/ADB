@@ -1,0 +1,30 @@
+<!-- @author Konstantin Bogdanoski (konstantin.b@live.com) -->
+<style xmlns:th="http://www.w3.org/1999/xhtml">
+    body {
+        text-align: center;
+    }
+
+    #form {
+        padding: 50px;
+        margin: 50px;
+        border: 2px solid black;
+        display: inline-block;
+        background: navajowhite;
+    }
+</style>
+<form id="form" action="#" th:action="@{/users/} + ${user.id}" th:object="${user}" method="post">
+    <h2>Edit User</h2>
+    <input type="hidden" name="userID" th:value="${user.id}">
+    <input type="hidden" name="_method" value="PATCH"/>
+    <label for="username">Username</label>
+    <input style="background: dimgray; border: dimgray" id="username" th:field="*{email}" th:value="${user.email}"
+           type="text" readonly><br><br>
+    <label for="role">Role</label>
+    <select id="role" th:field="*{userRole}">
+        <option th:value="'ROLE_ADMIN'" th:text="Admin"></option>
+        <option th:value="'ROLE_USER'" th:text="User"></option>
+    </select>
+    <hr>
+    <button type="submit" class="button-secondary">Change</button>
+    <button type="button" class="button-error" onclick="location.href='/admin/users'">Cancel</button>
+</form>

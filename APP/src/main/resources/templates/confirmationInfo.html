@@ -1,0 +1,93 @@
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <title>Pizza Delizzioso</title>
+    <style type="text/css">
+        @import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+        body {
+            width: 800px;
+            margin: auto;
+        }
+
+        table {
+            width: 100%;
+        }
+
+        table, td, th {
+            border: 1px solid black;
+            padding: 3px 2px;
+        }
+
+        body {
+            background: #76b852; /* fallback for old browsers */
+            background: -webkit-linear-gradient(right, #76b852, #8DC26F);
+            background: -moz-linear-gradient(right, #76b852, #8DC26F);
+            background: -o-linear-gradient(right, #76b852, #8DC26F);
+            background: linear-gradient(to left, #76b852, #8DC26F);
+            font-family: "Roboto", sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .button-success,
+        .button-error {
+            color: white;
+            border-radius: 4px;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+        }
+
+        .button-success {
+            background: rgb(28, 184, 65); /* this is a green */
+        }
+
+        .button-error {
+            background: rgb(202, 60, 60); /* this is a maroon */
+        }
+
+    </style>
+    <script>
+        function logout(form) {
+            return confirm("Are you sure you want to logout");
+        }
+    </script>
+</head>
+<body>
+<section>
+    <header>
+        <h1>Order Confirmation</h1>
+        <button th:if="${user.userRole == 'ROLE_ADMIN'}" onclick="location.href='/admin'" class="button-success">Admin
+            Page
+        </button>
+        <form style="display: inline-block" method="get" action="/logout" onsubmit="return logout(this)">
+            <button type="submit" class="button-error">Log out</button>
+        </form>
+        <!-- NOT ALLOWED DUE TO LOGIC -->
+        <!--<button class="button-error" onclick="location.href='/delete'">Delete your orders</button>-->
+    </header>
+    <table>
+        <tr>
+            <th colspan="2">
+                Your Order Status
+            </th>
+        </tr>
+        <tr>
+            <td><b>Pizza Type </b></td>
+            <td><span th:text="${selectedPizza.name}"></span></td>
+        </tr>
+        <tr>
+            <td><b>Pizza Size </b></td>
+            <td><span th:text="${order.size}"></span></td>
+        </tr>
+        <tr>
+            <td><b>Order no. </b></td>
+            <td><span th:text="${order.Id}"></span></td>
+        </tr>
+    </table>
+    <br/>
+    <form action="/" style="display: inline-block">
+        <button class="button-success">New Order</button>
+    </form>
+</section>
+</body>
+</html>
