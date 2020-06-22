@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.util.List;
@@ -27,8 +26,13 @@ public class Pizza extends BaseEntity implements Comparable<Pizza> {
     private String description;
     private boolean veggie;
     @JsonIgnore
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "pizza")
+    @OneToMany(mappedBy = "pizza")
     private List<PizzaIngredient> pizzaIngredients;
+
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "pizza")
+    private List<PizzaChef> pizzaChefs;
 
     public Pizza(String name, String description, boolean veggie) {
         this.name = name;

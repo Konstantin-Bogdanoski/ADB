@@ -19,12 +19,12 @@ public class PizzaIngredient {
     @EmbeddedId
     PizzaIngredientCompositeKey compositeKey;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne
     @MapsId("pizza_id")
     @JoinColumn(name = "pizza_id")
     Pizza pizza;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne
     @MapsId("ingredient_id")
     @JoinColumn(name = "ingredient_id")
     Ingredient ingredient;

@@ -4,8 +4,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.Entity;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
 import java.util.List;
 
@@ -15,7 +13,6 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
-@Inheritance(strategy = InheritanceType.JOINED)
 public class Deliverer extends Employee {
     @OneToMany(mappedBy = "deliverer")
     private List<PizzaOrder> orderList;
