@@ -13,7 +13,7 @@
     }
 </style>
 <div>
-    <form id="form" action="#" th:action="@{/pizzas/} + ${pizza.id}" th:object="${pizza}" method="post">
+    <form id="form" action="#" th:action="@{/pizzas/} + ${pizza.id}" th:object="${pizza}" method="post" th:method="put">
         <h2>Edit Pizza</h2>
         <input type="hidden" name="pizzaID" th:value="${pizza.id}">
         <input type="hidden" name="_method" value="PUT"/>

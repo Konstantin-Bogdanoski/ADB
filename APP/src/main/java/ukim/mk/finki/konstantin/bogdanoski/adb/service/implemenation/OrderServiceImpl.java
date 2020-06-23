@@ -34,4 +34,14 @@ public class OrderServiceImpl extends BaseEntityCrudServiceImpl<PizzaOrder, Orde
     public void deleteByPizza(Pizza pizza) {
         repository.deleteAllByPizza(pizza);
     }
+
+    @Override
+    public List<PizzaOrder> findByCustomerId(Long id) {
+        return getRepository().findByCustomerId(id);
+    }
+
+    @Override
+    public List<PizzaOrder> findOrders() {
+        return getRepository().findOrders();
+    }
 }

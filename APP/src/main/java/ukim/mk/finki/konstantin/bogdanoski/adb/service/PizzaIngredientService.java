@@ -3,6 +3,7 @@ package ukim.mk.finki.konstantin.bogdanoski.adb.service;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.stereotype.Service;
 import ukim.mk.finki.konstantin.bogdanoski.adb.model.Pizza;
 import ukim.mk.finki.konstantin.bogdanoski.adb.model.PizzaIngredient;
 import ukim.mk.finki.konstantin.bogdanoski.adb.model.PizzaIngredientCompositeKey;
@@ -14,6 +15,7 @@ import java.util.Optional;
 /**
  * @author Konstantin Bogdanoski (konstantin.b@live.com)
  */
+@Service
 public interface PizzaIngredientService {
 
     PizzaIngredient save(PizzaIngredient entity);

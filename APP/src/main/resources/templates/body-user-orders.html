@@ -1,5 +1,5 @@
 <!-- @author Konstantin Bogdanoski (konstantin.b@live.com) -->
-<h3 style="text-align: center">User: <span th:text="${user.username}"></span></h3>
+<h3 style="text-align: center">User: <span th:text="${user.email}"></span></h3>
 <table xmlns:th="http://www.w3.org/1999/xhtml">
     <thead>
     <tr>
@@ -22,7 +22,7 @@
         <td th:text="${order.dateCreated}">
         </td>
         <td>
-            <form th:action="@{/admin/orders/} + ${order.user.id} + '/' + ${order.id}" method="post"
+            <form th:action="@{/admin/orders/} + ${order.customer.id} + '/' + ${order.id}" method="post"
                   onsubmit="return deleteUser(this, '${order.id}');">
                 <input type="hidden" name="orderID" th:value="${order.id}">
                 <input type="hidden" name="_method" value="DELETE"/>

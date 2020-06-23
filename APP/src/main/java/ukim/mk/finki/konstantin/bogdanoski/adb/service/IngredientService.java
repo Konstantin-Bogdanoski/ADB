@@ -1,12 +1,11 @@
 package ukim.mk.finki.konstantin.bogdanoski.adb.service;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.stereotype.Service;
 import ukim.mk.finki.konstantin.bogdanoski.adb.model.Ingredient;
 
 /**
  * @author Konstantin Bogdanoski (konstantin.b@live.com)
  */
-@ResponseStatus(value = HttpStatus.NOT_FOUND)
+@Service
 public interface IngredientService extends BaseEntityCrudService<Ingredient> {
 }

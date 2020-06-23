@@ -19,7 +19,6 @@ public class MainController {
     private final OrderService orderService;
     private final PersonService personService;
     private final EmployeeService employeeService;
-    private final PizzaIngredientService pizzaIngredientService;
     private final PizzaService pizzaService;
 
     public MainController(OrderService orderService,
@@ -29,7 +28,6 @@ public class MainController {
         this.orderService = orderService;
         this.personService = personService;
         this.employeeService = employeeService;
-        this.pizzaIngredientService = pizzaIngredientService;
         this.pizzaService = pizzaService;
     }
 

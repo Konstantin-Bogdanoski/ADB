@@ -6,15 +6,22 @@
         <th>Order Pizza</th>
         <th>Order Size</th>
         <th>Order Address</th>
+        <th>Order Deliverer</th>
         <th>Delete</th>
     </tr>
     </thead>
     <tr th:each="order : ${orders}">
         <td th:text="${order.id}">
         </td>
+        <td th:text="${order.customer.email}">
+        </td>
         <td th:text="${order.pizza.name}">
         </td>
+        <td th:text="${order.size}">
+        </td>
         <td th:text="${order.address}">
+        </td>
+        <td th:text="${order.deliverer.email}">
         </td>
         <td>
             <form th:action="@{/admin/orders/} + ${order.id}" method="post"

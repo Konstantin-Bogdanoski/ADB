@@ -1,5 +1,6 @@
 package ukim.mk.finki.konstantin.bogdanoski.adb.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -15,9 +16,15 @@ import java.util.List;
 @Getter
 @Setter
 @Table(name = "customer")
-public class Customer extends Person {
+public class Customer extends Person implements Comparable<Customer> {
     private String address;
 
     @OneToMany(mappedBy = "customer")
+    @JsonIgnore
     List<PizzaOrder> orderList;
+
+    @Override
+    public int compareTo(Customer customer) {
+        return this.getEmail().compareTo(customer.getEmail());
+    }
 }

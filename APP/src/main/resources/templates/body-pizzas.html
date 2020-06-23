@@ -32,10 +32,10 @@
             </form>
         </td>
         <td>
-            <form th:action="@{/pizzas/} + ${pizza.id}" method="post"
+            <form th:action="@{/pizzas/} + ${pizza.id}" th:method="delete"
                   onsubmit="return deleteProduct(this, '${pizza.id}');">
                 <input type="hidden" name="pizzaID" th:value="${pizza.id}">
-                <input type="hidden" name="_method" value="DELETE"/>
+                <input type="hidden" name="_method" value="delete"/>
                 <button type="submit" class="button-error">Delete</button>
             </form>
         </td>
