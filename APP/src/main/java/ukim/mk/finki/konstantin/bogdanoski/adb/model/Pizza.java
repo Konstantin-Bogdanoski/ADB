@@ -22,10 +22,16 @@ import java.util.Objects;
 @AllArgsConstructor
 @Table(name = "pizza")
 public class Pizza extends BaseEntity implements Comparable<Pizza> {
+
     private String name;
+
     private String description;
+
     private boolean veggie;
-    @JsonIgnore
+
+    private boolean spicy;
+
+    private Float price;
     @OneToMany(mappedBy = "pizza")
     private List<PizzaIngredient> pizzaIngredients;
 

@@ -20,10 +20,10 @@ public class PizzaOrder extends BaseEntity {
 
     private String size;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne
     private Customer customer;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne
     private Deliverer deliverer;
 
     private String address;

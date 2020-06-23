@@ -1,5 +1,6 @@
 package ukim.mk.finki.konstantin.bogdanoski.adb.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,6 +15,7 @@ import java.util.List;
 @Getter
 @Setter
 public class Deliverer extends Employee {
+    @JsonIgnore
     @OneToMany(mappedBy = "deliverer")
     private List<PizzaOrder> orderList;
 }

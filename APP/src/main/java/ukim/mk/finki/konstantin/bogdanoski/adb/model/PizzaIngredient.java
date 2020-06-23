@@ -1,5 +1,6 @@
 package ukim.mk.finki.konstantin.bogdanoski.adb.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -20,6 +21,7 @@ public class PizzaIngredient {
     PizzaIngredientCompositeKey compositeKey;
 
     @ManyToOne
+    @JsonIgnore
     @MapsId("pizza_id")
     @JoinColumn(name = "pizza_id")
     Pizza pizza;
