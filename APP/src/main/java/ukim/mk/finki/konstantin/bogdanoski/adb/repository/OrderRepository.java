@@ -22,7 +22,7 @@ public interface OrderRepository extends JpaSpecificationRepository<PizzaOrder> 
     void deleteAllByPizza(Pizza pizza);
 
     @Query(nativeQuery = true,
-            value = "SELECT p.id as id, address, size, deliverer_id, pz.name AS pizza, pizza_id, date_created, date_updated, p.customer_id as customer_id FROM pizza_order p JOIN pizza pz ON p.pizza_id = pz.id JOIN base_entity be ON p.id = be.id WHERE p.customer_id = :cust_id LIMIT 20")
+            value = "SELECT p.id as id, address, size, deliverer_id, pz.name AS pizza, pizza_id, date_created, date_updated, p.customer_id as customer_id FROM pizza_order p JOIN pizza pz ON p.pizza_id = pz.id JOIN base_entity be ON p.id = be.id WHERE p.customer_id = :cust_id LIMIT 100")
     List<PizzaOrder> findByCustomerId(@Param("cust_id") Long id);
 
     @Query(nativeQuery = true, value = "SELECT po.id as id, address, size, date_created, date_updated, customer_id, deliverer_id, pizza_id FROM pizza_order po JOIN base_entity be ON po.id = be.id LIMIT 30")

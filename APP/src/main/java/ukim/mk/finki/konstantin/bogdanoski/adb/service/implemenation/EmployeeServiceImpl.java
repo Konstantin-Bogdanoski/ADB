@@ -5,6 +5,8 @@ import ukim.mk.finki.konstantin.bogdanoski.adb.model.Employee;
 import ukim.mk.finki.konstantin.bogdanoski.adb.repository.EmployeeRepository;
 import ukim.mk.finki.konstantin.bogdanoski.adb.service.EmployeeService;
 
+import java.util.List;
+
 /**
  * @author Konstantin Bogdanoski (konstantin.b@live.com)
  */
@@ -19,5 +21,10 @@ public class EmployeeServiceImpl extends BaseEntityCrudServiceImpl<Employee, Emp
     @Override
     protected EmployeeRepository getRepository() {
         return repository;
+    }
+
+    @Override
+    public List<Employee> findTop100() {
+        return getRepository().findTop100();
     }
 }

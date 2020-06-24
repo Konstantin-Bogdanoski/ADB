@@ -28,14 +28,16 @@ public class AdminController {
     private final PizzaService pizzaService;
     private final IngredientService ingredientService;
     private final CustomerService customerService;
+    private final EmployeeService employeeService;
     private final OrderService orderService;
     private final Logger logger = Logger.getLogger(AdminController.class.getSimpleName());
 
-    public AdminController(PersonService personService, PizzaService pizzaService, IngredientService ingredientService, CustomerService customerService, OrderService orderService) {
+    public AdminController(PersonService personService, PizzaService pizzaService, IngredientService ingredientService, CustomerService customerService, EmployeeService employeeService, OrderService orderService) {
         this.personService = personService;
         this.pizzaService = pizzaService;
         this.ingredientService = ingredientService;
         this.customerService = customerService;
+        this.employeeService = employeeService;
         this.orderService = orderService;
     }
 
@@ -105,6 +107,17 @@ public class AdminController {
         ModelAndView modelAndView = new ModelAndView("master-admin");
         modelAndView.addObject("users", customerService.findTop100());
         modelAndView.addObject("bodyContent", "body-users");
+        return modelAndView;
+    }
+
+    @GetMapping("/employees")
+    public ModelAndView getEmpployees(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        logger.info("\u001B[33mGET method for GET EMPLOYEES CALLED from Admin Controller\u001B[0m");
+        resp.setContentType("text/html; charset=UTF-8");
+        req.setCharacterEncoding("UTF-8");
+        ModelAndView modelAndView = new ModelAndView("master-admin");
+        modelAndView.addObject("employees", employeeService.findTop100());
+        modelAndView.addObject("bodyContent", "body-employees");
         return modelAndView;
     }
 
