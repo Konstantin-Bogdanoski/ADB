@@ -5,6 +5,8 @@ import ukim.mk.finki.konstantin.bogdanoski.adb.model.Chef;
 import ukim.mk.finki.konstantin.bogdanoski.adb.repository.ChefRepository;
 import ukim.mk.finki.konstantin.bogdanoski.adb.service.ChefService;
 
+import java.util.List;
+
 /**
  * @author Konstantin Bogdanoski (konstantin.b@live.com)
  */
@@ -19,5 +21,10 @@ public class ChefServiceImpl extends BaseEntityCrudServiceImpl<Chef, ChefReposit
     @Override
     protected ChefRepository getRepository() {
         return repository;
+    }
+
+    @Override
+    public List<Chef> findTop100() {
+        return getRepository().findTop100();
     }
 }

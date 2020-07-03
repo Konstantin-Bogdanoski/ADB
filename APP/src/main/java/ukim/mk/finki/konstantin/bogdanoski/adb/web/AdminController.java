@@ -30,15 +30,19 @@ public class AdminController {
     private final CustomerService customerService;
     private final EmployeeService employeeService;
     private final OrderService orderService;
+    private final ChefService chefService;
+    private final DelivererService delivererService;
     private final Logger logger = Logger.getLogger(AdminController.class.getSimpleName());
 
-    public AdminController(PersonService personService, PizzaService pizzaService, IngredientService ingredientService, CustomerService customerService, EmployeeService employeeService, OrderService orderService) {
+    public AdminController(PersonService personService, PizzaService pizzaService, IngredientService ingredientService, CustomerService customerService, EmployeeService employeeService, OrderService orderService, ChefService chefService, DelivererService delivererService) {
         this.personService = personService;
         this.pizzaService = pizzaService;
         this.ingredientService = ingredientService;
         this.customerService = customerService;
         this.employeeService = employeeService;
         this.orderService = orderService;
+        this.chefService = chefService;
+        this.delivererService = delivererService;
     }
 
     @GetMapping
@@ -118,6 +122,28 @@ public class AdminController {
         ModelAndView modelAndView = new ModelAndView("master-admin");
         modelAndView.addObject("employees", employeeService.findTop100());
         modelAndView.addObject("bodyContent", "body-employees");
+        return modelAndView;
+    }
+
+    @GetMapping("/chefs")
+    public ModelAndView getChefs(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        logger.info("\u001B[33mGET method for GET CHEFS CALLED from Admin Controller\u001B[0m");
+        resp.setContentType("text/html; charset=UTF-8");
+        req.setCharacterEncoding("UTF-8");
+        ModelAndView modelAndView = new ModelAndView("master-admin");
+        modelAndView.addObject("chefs", chefService.findTop100());
+        modelAndView.addObject("bodyContent", "body-chefs");
+        return modelAndView;
+    }
+
+    @GetMapping("/deliverers")
+    public ModelAndView getDeliverers(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        logger.info("\u001B[33mGET method for GET DELIVERERS CALLED from Admin Controller\u001B[0m");
+        resp.setContentType("text/html; charset=UTF-8");
+        req.setCharacterEncoding("UTF-8");
+        ModelAndView modelAndView = new ModelAndView("master-admin");
+        modelAndView.addObject("deliverers", delivererService.findTop100());
+        modelAndView.addObject("bodyContent", "body-deliverers");
         return modelAndView;
     }
 

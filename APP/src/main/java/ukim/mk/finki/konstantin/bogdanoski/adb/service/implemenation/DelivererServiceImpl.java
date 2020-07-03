@@ -5,6 +5,8 @@ import ukim.mk.finki.konstantin.bogdanoski.adb.model.Deliverer;
 import ukim.mk.finki.konstantin.bogdanoski.adb.repository.DelivererRepository;
 import ukim.mk.finki.konstantin.bogdanoski.adb.service.DelivererService;
 
+import java.util.List;
+
 /**
  * @author Konstantin Bogdanoski (konstantin.b@live.com)
  */
@@ -19,5 +21,10 @@ public class DelivererServiceImpl extends BaseEntityCrudServiceImpl<Deliverer, D
     @Override
     protected DelivererRepository getRepository() {
         return repository;
+    }
+
+    @Override
+    public List<Deliverer> findTop100() {
+        return getRepository().findTop100();
     }
 }

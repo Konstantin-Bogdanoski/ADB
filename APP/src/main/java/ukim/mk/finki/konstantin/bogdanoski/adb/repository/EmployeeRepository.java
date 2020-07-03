@@ -12,6 +12,6 @@ import java.util.List;
 @Repository
 public interface EmployeeRepository extends JpaSpecificationRepository<Employee> {
     @Query(nativeQuery = true,
-            value = "SELECT e.id as id, pay, email, password, date_created, date_updated from employee e join person p on e.id = p.id join base_entity be on p.id = be.id limit 100")
+            value = "SELECT c.id as id, pay, email, password, date_created, date_updated from employee c join person p on c.id = p.id join base_entity be on p.id = be.id limit 100")
     List<Employee> findTop100();
 }
