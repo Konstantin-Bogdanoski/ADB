@@ -69,14 +69,6 @@
 <body>
 <header>
     <h1>Delivery Information</h1>
-    <button th:if="${user.userRole == 'ROLE_ADMIN'}" onclick="location.href='/admin'" class="button-success">Admin
-        Page
-    </button>
-    <form style="display: inline-block" method="get" action="/logout" onsubmit="return logout(this)">
-        <button type="submit" class="button-error">Log out</button>
-    </form>
-    <!-- NOT ALLOWED DUE TO LOGIC -->
-    <!--<button class="button-error" onclick="location.href='/delete'">Delete your orders</button>-->
 </header>
 <section>
     <form method="get" th:action="@{/ConfirmationInfo.do}">
