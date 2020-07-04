@@ -8,6 +8,7 @@ import ukim.mk.finki.konstantin.bogdanoski.adb.model.Pizza;
 import ukim.mk.finki.konstantin.bogdanoski.adb.model.PizzaOrder;
 
 import javax.transaction.Transactional;
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -36,4 +37,9 @@ public interface OrderRepository extends JpaSpecificationRepository<PizzaOrder> 
 
     @Query(nativeQuery = true, value = "SELECT COUNT(id) FROM pizza_order po WHERE po.deliverer_id = :delivererId")
     Long delivererOrders(@Param("delivererId") Long id);
+
+    @Query(nativeQuery = true, value = "DROP TABLE IF EXISTS year_report; " +
+            "CREATE TABLE year_report PARTITION OF pizza_order " +
+            "FOR VALUES FROM (:from) TO (:to);")
+    boolean partition(@Param("from") LocalDateTime from, @Param("to") LocalDateTime to);
 }
