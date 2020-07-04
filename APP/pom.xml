@@ -10,9 +10,24 @@
     </parent>
     <groupId>ukim.mk.finki.konstantin.bogdanoski</groupId>
     <artifactId>adb</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1</version>
     <name>adb</name>
-    <description>Demo project for Spring Boot</description>
+    <description>Project for subject Advanced Data Bases of FCSE, Skopje, North Macedonia</description>
+
+    <developers>
+        <developer>
+            <id>161048</id>
+            <name>Konstantin Bogdanoski</name>
+            <email>konstantin.b@live.com</email>
+            <url>https://www.linkedin.com/in/konstantin-bogdanoski/</url>
+            <organization>FCSE</organization>
+            <organizationUrl>https://finki.ukim.mk/</organizationUrl>
+            <roles>
+                <role>developer</role>
+            </roles>
+            <timezone>Europe/Skopje</timezone>
+        </developer>
+    </developers>
 
     <properties>
         <java.version>1.8</java.version>
@@ -43,17 +58,6 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.junit.vintage</groupId>
-                    <artifactId>junit-vintage-engine</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
