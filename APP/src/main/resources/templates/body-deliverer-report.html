@@ -1,0 +1,21 @@
+<style xmlns:th="http://www.w3.org/1999/xhtml">
+    body {
+        text-align: center;
+    }
+
+    #form {
+        padding: 50px;
+        margin: 50px;
+        border: 2px solid black;
+        display: inline-block;
+        background: navajowhite;
+    }
+</style>
+<div id="container">
+    <h1>The deliverer with email: <span th:utext="${deliverer.email}"></span> and ID: <span
+            th:utext="${deliverer.id}"></span>
+        delivered a total of <span th:utext="${report}"></span> orders in the past Month.
+        <br/>
+        She/He delivered a total of <span th:utext="${allOrders}"></span> orders so far.
+    </h1>
+</div>

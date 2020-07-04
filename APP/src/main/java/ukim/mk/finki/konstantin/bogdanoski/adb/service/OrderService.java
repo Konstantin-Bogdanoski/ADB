@@ -18,4 +18,10 @@ public interface OrderService extends BaseEntityCrudService<PizzaOrder> {
     List<PizzaOrder> findByCustomerId(Long id);
 
     List<PizzaOrder> findOrders();
+
+    boolean checkBonus();
+
+    Long delivererReport(Long id);
+
+    Long delivererOrders(Long id);
 }

@@ -5,6 +5,7 @@
         <th>ID</th>
         <th>E-mail</th>
         <th>Pay</th>
+        <th>Report</th>
         <th>Edit</th>
         <th>Delete</th>
     </tr>
@@ -18,6 +19,11 @@
         </td>
         <td>
             <span th:text="${user.pay}"></span>
+        </td>
+        <td>
+            <form th:action="@{/admin/deliverers/} + ${user.id} + @{/report}" method="get">
+                <button type="submit" class="button-secondary">Report</button>
+            </form>
         </td>
         <td>
             <form th:action="@{/admin/editUser/} + ${user.id}" method="get">

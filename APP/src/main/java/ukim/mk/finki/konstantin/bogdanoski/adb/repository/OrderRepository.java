@@ -27,4 +27,13 @@ public interface OrderRepository extends JpaSpecificationRepository<PizzaOrder> 
 
     @Query(nativeQuery = true, value = "SELECT po.id as id, address, size, date_created, date_updated, customer_id, deliverer_id, pizza_id FROM pizza_order po JOIN base_entity be ON po.id = be.id LIMIT 30")
     List<PizzaOrder> findOrders();
+
+    @Query(nativeQuery = true, value = "SELECT bonus()")
+    boolean checkBonus();
+
+    @Query(nativeQuery = true, value = "SELECT report(:id)")
+    Long delivererReport(@Param("id") Long id);
+
+    @Query(nativeQuery = true, value = "SELECT COUNT(id) FROM pizza_order po WHERE po.deliverer_id = :delivererId")
+    Long delivererOrders(@Param("delivererId") Long id);
 }

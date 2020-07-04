@@ -147,6 +147,19 @@ public class AdminController {
         return modelAndView;
     }
 
+    @GetMapping("/deliverers/{id}/report")
+    public ModelAndView getReportForDeliverer(@PathVariable(name = "id") Long delivererId, HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        logger.info("\u001B[33mGET Get Deliverer's report\u001B[0m");
+        resp.setContentType("text/html; charset=UTF-8");
+        req.setCharacterEncoding("UTF-8");
+        ModelAndView modelAndView = new ModelAndView("master-admin");
+        modelAndView.addObject("deliverer", delivererService.findOne(delivererId).orElseThrow(PersonNotFoundException::new));
+        modelAndView.addObject("report", orderService.delivererReport(delivererId));
+        modelAndView.addObject("allOrders", orderService.delivererOrders(delivererId));
+        modelAndView.addObject("bodyContent", "body-deliverer-report");
+        return modelAndView;
+    }
+
     @GetMapping("/editPizza/{id}")
     public ModelAndView editPizza(@PathVariable(name = "id") Long pizzaID, HttpServletRequest req, HttpServletResponse resp) throws IOException {
         logger.info("\u001B[33mGET method for EDIT PIZZA CALLED from Admin Controller\u001B[0m");
@@ -220,6 +233,16 @@ public class AdminController {
         modelAndView.addObject("orders", ordersFromUser);
         modelAndView.addObject("user", customer);
         modelAndView.addObject("bodyContent", "body-user-orders");
+        return modelAndView;
+    }
+
+    @GetMapping("/bonus")
+    public ModelAndView giveBonus() {
+        logger.info("\u001B[33m Checking bonus possibility \u001B[0m");
+        boolean result = orderService.checkBonus();
+        ModelAndView modelAndView = new ModelAndView("master-admin");
+        modelAndView.addObject("result", result ? "Keep up the good work! 5% Bonus for all employees" : "The profit from the previous month is greater than this month. NO BONUS");
+        modelAndView.addObject("bodyContent", "body-bonus");
         return modelAndView;
     }
 }

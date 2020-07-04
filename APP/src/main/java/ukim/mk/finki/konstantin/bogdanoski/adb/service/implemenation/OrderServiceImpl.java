@@ -44,4 +44,19 @@ public class OrderServiceImpl extends BaseEntityCrudServiceImpl<PizzaOrder, Orde
     public List<PizzaOrder> findOrders() {
         return getRepository().findOrders();
     }
+
+    @Override
+    public boolean checkBonus() {
+        return getRepository().checkBonus();
+    }
+
+    @Override
+    public Long delivererReport(Long id) {
+        return getRepository().delivererReport(id);
+    }
+
+    @Override
+    public Long delivererOrders(Long id) {
+        return getRepository().delivererOrders(id);
+    }
 }
